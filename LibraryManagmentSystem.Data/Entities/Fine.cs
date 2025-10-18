@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagmentSystem.Data.Entities
 {
-    internal class Fine
+    public class Fine
     {
         [Key]
         public int Id { get; set; }

@@ -1,4 +1,14 @@
+using LibraryManagmentSystem.Infrasturcture.Data;
+using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+
+// Register DBContext
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString( "DefaultConnection" ) ));
 
 // Add services to the container.
 
@@ -12,6 +22,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    // Scalar
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();

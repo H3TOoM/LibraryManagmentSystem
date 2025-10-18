@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagmentSystem.Data.Entities
 {
-    internal class Review
+    public class Review
     {
         [Key]
         public int Id { get; set; }

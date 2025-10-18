@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagmentSystem.Infrasturcture
 {
-    public class Class1
+    public class ModuleInfrastuctreDependcies
     {
 
     }

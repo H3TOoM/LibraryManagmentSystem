@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagmentSystem.Data.Entities
 {
-    internal class User
+    public class User
     {
         [Key]
         public int Id { get; set; }
@@ -26,10 +26,7 @@ namespace LibraryManagmentSystem.Data.Entities
         public string PasswordHash { get; set; }
         public DateTime DateOfBirth { get; set; }
 
-        public ICollection<Loan> Loans { get; set; } 
-        public ICollection<Review> Reviews { get; set; }
-
-        public ICollection<Fine> Fines { get; set; }
+       
 
 
     }

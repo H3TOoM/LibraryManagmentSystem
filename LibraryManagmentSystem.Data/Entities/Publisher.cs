@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagmentSystem.Data.Entities
 {
-    internal class Publisher
+    public class Publisher
     {
         [Key]
         public int Id { get; set; }

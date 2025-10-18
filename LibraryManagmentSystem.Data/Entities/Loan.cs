@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagmentSystem.Data.Entities
 {
-    internal class Loan
+    public class Loan
     {
         [Key]
         public int Id { get; set; }
