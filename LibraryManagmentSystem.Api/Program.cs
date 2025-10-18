@@ -1,4 +1,7 @@
+using LibraryManagmentSystem.Infrasturcture;
 using LibraryManagmentSystem.Infrasturcture.Data;
+using LibraryManagmentSystem.Infrasturcture.Repoistories;
+using LibraryManagmentSystem.Infrasturcture.Repoistories.Base;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
@@ -9,6 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Register DBContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString( "DefaultConnection" ) ));
+
+
+
+builder.Services.AddInfrastuctreDependcies();
+
 
 // Add services to the container.
 

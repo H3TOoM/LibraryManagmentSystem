@@ -11,4 +11,8 @@
     <ProjectReference Include="..\LibraryManagmentSystem.Infrasturcture\LibraryManagmentSystem.Infrasturcture.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+  </ItemGroup>
+
 </Project>
