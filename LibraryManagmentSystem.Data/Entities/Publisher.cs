@@ -26,5 +26,8 @@ namespace LibraryManagmentSystem.Data.Entities
         [Url]
         [Required]
         public string Website { get; set; }
+        
+        // Navigation properties
+        public ICollection<Book> Books { get; set; } = new List<Book>();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryManagmentSystem.Services.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace LibraryManagmentSystem.Services.Services.Base
 {
     public interface IAccountService
     {
-        Task<string> LoginAsync(string username, string password);
-        Task<bool> RegisterAsync(string username, string password, string email);
+        Task<UserResponseDto> LoginAsync(UserLoginDto dto);
+        Task<UserResponseDto> RegisterAsync(UserCreateDto dto);
     }
 }

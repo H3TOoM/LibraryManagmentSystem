@@ -2,6 +2,8 @@ using LibraryManagmentSystem.Infrasturcture;
 using LibraryManagmentSystem.Infrasturcture.Data;
 using LibraryManagmentSystem.Infrasturcture.Repoistories;
 using LibraryManagmentSystem.Infrasturcture.Repoistories.Base;
+using LibraryManagmentSystem.Services;
+using LibraryManagmentSystem.Services.Services;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
@@ -16,6 +18,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 
 builder.Services.AddInfrastuctreDependcies();
+builder.Services.AddServicesDependcies();
+
+
 
 
 // Add services to the container.

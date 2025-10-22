@@ -25,9 +25,11 @@ namespace LibraryManagmentSystem.Data.Entities
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-       
-
-
+        // Navigation properties
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
+        public ICollection<Loan> Loans { get; set; } = new List<Loan>();
+        public ICollection<Fine> Fines { get; set; } = new List<Fine>();
     }
 }

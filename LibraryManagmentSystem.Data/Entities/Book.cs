@@ -29,5 +29,9 @@ namespace LibraryManagmentSystem.Data.Entities
         
         public DateTime PublishedDate { get; set; } 
         public int CopiesAvailable { get; set; }
+        
+        // Navigation properties
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
+        public ICollection<Loan> Loans { get; set; } = new List<Loan>();
     }
 }

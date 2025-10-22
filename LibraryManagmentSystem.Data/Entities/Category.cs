@@ -15,5 +15,8 @@ namespace LibraryManagmentSystem.Data.Entities
         [StringLength(50)]
         [MinLength(3)]
         public string Name { get; set; }
+        
+        // Navigation properties
+        public ICollection<Book> Books { get; set; } = new List<Book>();
     }
 }

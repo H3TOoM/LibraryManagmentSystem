@@ -20,8 +20,8 @@ namespace LibraryManagmentSystem.Data.Entities
 
         [Required]
         public decimal Amount { get; set; }
-
-       
         public bool IsPaid { get; set; } = false;
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime? PaidDate { get; set; }
     }
 }
