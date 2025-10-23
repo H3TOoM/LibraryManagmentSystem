@@ -5,13 +5,13 @@ namespace LibraryManagmentSystem.Services.DTOs
     public class CategoryCreateDto
     {
         [Required]
-        [StringLength(50, MinimumLength = 3)]
+        [StringLength( 50, MinimumLength = 3 )]
         public string Name { get; set; }
     }
 
     public class CategoryUpdateDto
     {
-        [StringLength(50, MinimumLength = 3)]
+        [StringLength( 50, MinimumLength = 3 )]
         public string? Name { get; set; }
     }
 

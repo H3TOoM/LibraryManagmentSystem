@@ -2,7 +2,10 @@
 using LibraryManagmentSystem.Data.Entities;
 using LibraryManagmentSystem.Infrasturcture.Repoistories.Base;
 using LibraryManagmentSystem.Services.DTOs;
+using LibraryManagmentSystem.Services.Extentions;
+using LibraryManagmentSystem.Services.Helpers;
 using LibraryManagmentSystem.Services.Services.Base;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace LibraryManagmentSystem.Services.Services
 {
@@ -37,6 +40,9 @@ namespace LibraryManagmentSystem.Services.Services
 
         public async Task<BookResponseDto> CreateBookAsync( BookCreateDto bookCreateDto )
         {
+
+           ValiditorHelper.ValidateData( null, bookCreateDto, "Book" );
+
             var book = new Book
             {
                 Title = bookCreateDto.Title,
@@ -54,6 +60,7 @@ namespace LibraryManagmentSystem.Services.Services
 
         public async Task<BookResponseDto> UpdateBookAsync( int id, BookUpdateDto bookUpdateDto )
         {
+            ValiditorHelper.ValidateData( id, bookUpdateDto, "Book" );
             var book = await _mainRepoistory.GetByIdAsync( id );
             if (book == null)
                 throw new KeyNotFoundException( "Book not found" );
@@ -72,6 +79,9 @@ namespace LibraryManagmentSystem.Services.Services
 
         public async Task<bool> DeleteBookAsync( int id )
         {
+            if (id <= 0)
+                throw new ArgumentException( "Invalid book id" );
+
             var result = await _mainRepoistory.DeleteAsync( id );
             if (!result)
                 throw new KeyNotFoundException( "Book not found" );
