@@ -16,6 +16,12 @@ namespace LibraryManagmentSystem.Services
 
             // Register Book Service
             services.AddTransient<IBookService, BookService>();
+            services.AddTransient<IAuthorService, AuthorService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IFineService, FineService>();
+            services.AddTransient<ILoanService, LoanService>();
+            services.AddTransient<IPublisherService, PublisherService>();
+            services.AddTransient<IReviewService, ReviewService>();
 
             return services;
         }

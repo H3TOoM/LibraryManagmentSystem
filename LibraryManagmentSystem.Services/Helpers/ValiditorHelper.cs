@@ -9,15 +9,31 @@ namespace LibraryManagmentSystem.Services.Helpers
 {
     public static class ValiditorHelper
     {
-        public static void ValidateData( int? id, Object dto , String className )
+        public static void ValidateData( int? id, Object? dto , String className )
         {
-            if (dto.CheckModelState() == false)
-                throw new ArgumentException( $"Invalid {className} data" );
+            if (dto != null)
+            {
+                if (dto.CheckModelState() == false)
+                    throw new ArgumentException( $"Invalid {className} data" );
+            }
+            
             if (id.HasValue)
             {
                 if (id <= 0)
                     throw new ArgumentException( $"Invalid {className} data" );
             }
+        }
+
+        public static void ValidateId( int id, String className )
+        {
+            if (id <= 0)
+                throw new ArgumentException( $"Invalid {className} Id" );
+        }
+
+        public static void EntityNotFoundCheck( Object entity, String className, int id )
+        {
+            if (entity == null)
+                throw new KeyNotFoundException( $"{className} with id {id} not found." );
         }
     }
 }
