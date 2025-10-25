@@ -60,7 +60,7 @@ namespace LibraryManagmentSystem.Services.Services
 
         public async Task<PublisherResponseDto> UpdatePublisherAsync( int id, PublisherUpdateDto publisherUpdateDto )
         {
-            ValiditorHelper.ValidateData( id, publisherUpdateDto, "Publisher" );
+            ValiditorHelper.ValidateId( id, "Publisher" );
             var publisher = await _mainRepoistory.GetByIdAsync( id );
             ValiditorHelper.EntityNotFoundCheck( publisher, "Publisher", id );
 

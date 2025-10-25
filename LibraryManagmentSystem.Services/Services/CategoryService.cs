@@ -58,11 +58,10 @@ namespace LibraryManagmentSystem.Services.Services
         public async Task<CategoryResponseDto> UpdateCategoryAsync( int id, CategoryUpdateDto categoryUpdateDto )
         {
             
-            ValiditorHelper.ValidateData( id, categoryUpdateDto , "Category" );
+            ValiditorHelper.ValidateId( id  , "Category" );
 
             var category = await _mainRepoistory.GetByIdAsync( id );
-            if (category == null)
-                throw new Exception( "Category not found" );
+            ValiditorHelper.EntityNotFoundCheck( category, "Category", id );
 
             category.Name = categoryUpdateDto.Name ?? category.Name;
             await _mainRepoistory.UpdateAsync( id, category );
@@ -73,8 +72,7 @@ namespace LibraryManagmentSystem.Services.Services
 
         public async Task<bool> DeleteCategoryAsync( int id )
         {
-            if (id <= 0)
-                throw new ArgumentException( "Invalid category id" );
+            ValiditorHelper.ValidateId( id , "Category" );
 
             var result = await _mainRepoistory.DeleteAsync( id );
             if (!result)

@@ -12,4 +12,9 @@
     <ProjectReference Include="..\LibraryManagmentSystem.Services\LibraryManagmentSystem.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\" />
+    <Folder Include="Mapping\" />
+  </ItemGroup>
+
 </Project>

@@ -55,11 +55,10 @@ namespace LibraryManagmentSystem.Services.Services
 
         public async Task<AuthorResponseDto> UpdateAuthorAsync( int id, AuthorUpdateDto authorUpdateDto )
         {           
-            ValiditorHelper.ValidateData( id, authorUpdateDto, "Author" );
+            ValiditorHelper.ValidateId( id, "Author" );
 
             var author = await _mainRepoistory.GetByIdAsync( id );
-            if (author == null)
-                throw new KeyNotFoundException( $"Author with id {id} not found." );
+            ValiditorHelper.EntityNotFoundCheck( author, "Author", id );
 
             author.FirstName = authorUpdateDto.FirstName ?? author.FirstName;
             author.LastName = authorUpdateDto.LastName ?? author.LastName;
@@ -72,8 +71,7 @@ namespace LibraryManagmentSystem.Services.Services
 
         public async Task<bool> DeleteAuthorAsync( int id )
         {
-            if (id <= 0)
-                throw new ArgumentException( "Invalid author id" );
+            ValiditorHelper.ValidateId( id, "Author" );
 
             var result = await _mainRepoistory.DeleteAsync( id );
             if (!result)

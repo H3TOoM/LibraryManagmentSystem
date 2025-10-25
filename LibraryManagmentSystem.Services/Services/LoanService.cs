@@ -58,7 +58,7 @@ namespace LibraryManagmentSystem.Services.Services
 
         public async Task<LoanResponseDto> UpdateLoanAsync( int id, LoanUpdateDto loanUpdateDto )
         {
-            ValiditorHelper.ValidateData( id, loanUpdateDto, "Loan" );
+            ValiditorHelper.ValidateId( id, "Loan" );
             var loan = await _mainRepoistory.GetByIdAsync( id );
             ValiditorHelper.EntityNotFoundCheck( loan, "Loan", id );
 

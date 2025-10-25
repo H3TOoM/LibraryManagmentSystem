@@ -60,7 +60,7 @@ namespace LibraryManagmentSystem.Services.Services
        
         public async Task<ReviewResponseDto> UpdateReviewAsync( int id, ReviewUpdateDto reviewUpdateDto )
         {
-            ValiditorHelper.ValidateData( id, reviewUpdateDto, "Review" );
+            ValiditorHelper.ValidateId( id, "Review" );
 
             var review = await _mainRepository.GetByIdAsync( id );
             ValiditorHelper.EntityNotFoundCheck( review, "Review", id );

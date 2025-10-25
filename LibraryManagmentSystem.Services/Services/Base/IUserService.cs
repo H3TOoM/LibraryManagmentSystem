@@ -1,4 +1,5 @@
-﻿using LibraryManagmentSystem.Services.DTOs;
+﻿using LibraryManagmentSystem.Data.Entities;
+using LibraryManagmentSystem.Services.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace LibraryManagmentSystem.Services.Services.Base
 {
     public interface IUserService
     {
-        Task<IEnumerable<UserResponseDto>> GetUsersAsync();
-        Task<UserResponseDto> GetUserByIdAsync(int id);
-        Task<UserResponseDto> CreateUserAsync(UserCreateDto userCreateDto);
-        Task<UserResponseDto> UpdateUserAsync(int id, UserUpdateDto userUpdateDto);
+        Task<IEnumerable<User>> GetUsersAsync();
+        Task<User> GetUserByIdAsync(int id);
+        Task<User> CreateUserAsync(UserCreateDto userCreateDto);
+        Task<User> UpdateUserAsync(int id, UserUpdateDto userUpdateDto);
         Task<bool> DeleteUserAsync(int id);
     }
 }

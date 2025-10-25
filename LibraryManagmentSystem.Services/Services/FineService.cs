@@ -59,7 +59,7 @@ namespace LibraryManagmentSystem.Services.Services
 
         public async Task<FineResponseDto> UpdateFineAsync( int id, FineUpdateDto fineUpdateDto )
         {
-            ValiditorHelper.ValidateData( id, fineUpdateDto, "Fine" );
+            ValiditorHelper.ValidateId( id, "Fine" );
             var fine = await _mainRepoistory.GetByIdAsync( id );
             ValiditorHelper.EntityNotFoundCheck( fine, "Fine", id );
 
